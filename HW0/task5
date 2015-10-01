@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int x,n;
+    scanf("%i, %d", &x,&n);
+    printf("%i", (x<<((3^n)<<3)>>24));
+    return 0;
+}
