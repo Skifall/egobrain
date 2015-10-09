@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int a,b;
+    scanf("%i,%i", &a,&b);
+    printf("%i", !!(((a>>31)^(b>>31))|(!((a>>31)^((a+b)>>31)))));
+    return 0;
+}
