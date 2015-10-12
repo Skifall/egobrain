@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int x,n;
+    scanf("%i,%d", &x, &n);
+    printf("%i", (x>>n)&((~(1<<31))>>(((31+n)&~32)&((~((!!n)<<31)+1)>>31))));
+    return 0;
+}
