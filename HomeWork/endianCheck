@@ -1,0 +1,14 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() 
+{
+	union {
+		int value;
+		char bytes[4];
+    	} test;
+	test.value = 0x1;
+	printf("%i", test.bytes[0]);
+	return 0;
+}
