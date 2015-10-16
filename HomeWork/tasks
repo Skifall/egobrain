@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int bitAnd(int a,int b){
+return  ~(~a|~b);
+}
+
+int bitXor(int a, int b){
+return ~(~(~a&b)&~(a&~b));
+}
+
+int thirdBits (){
+return (((((36<<8)+146)<<8)+73)<<8)+36;
+}
+
+int fitsBits(int x, int n){
+return (!(x>>n^1)|!(~(x^1)>>n))|(!!(x>>31));
+}
+
+int sign (int x){
+return (x>>31)|(!!x);
+}
+
+int getByte (int x, int n){
+return x<<((3^n)<<3)>>24;
+}
+
+int logicalShift (int x, int n){
+return (x>>n)&((~(1<<31))>>(((31+n)&~32)&((~((!!n)<<31)+1)>>31)));
+}
+
+int addOK (int a, int b){
+return !!(((a>>31)^(b>>31))|(!((a>>31)^((a+b)>>31))));
+}
+
+int bang (int x){
+return ~(~((x>>31)|((~x+1)>>31))+1)+2;
+}
+
+int conditional (int x, int y, int z){
+return ((~(!x)<<31)>>31)&y|((~(!!x)<<31)>>31)&z;
+}
+
+int isPower2 (int x){
+return (!(x&(x+~0)))&((!(x>>31)<<31)>>31);
+}
+
+int main()
+{
+    printf("\nFunction Implemented");
+    return 0;
+}
