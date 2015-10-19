@@ -1,18 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-union floatBits1 {
+union floatBits11 {
     float float_t;
     char float_char[4];
 } floatBits;
-struct floatBit {
+struct floatBit11 {
     int s, e, m;
 };
 
-int main (){
-    struct floatBit Struct;
-    float a;
+int floatBits1 ( float a){
+    struct floatBit11 Struct;
     scanf("%g", &a);
     floatBits.float_t = a;
     Struct.s = floatBits.float_char[3]&0x80;
@@ -21,4 +19,11 @@ int main (){
     printf("\n%f", pow(-1,Struct.s));
     printf("*1.%d",Struct.m);
     printf("*2^%d", Struct.e-127);
+    return 0;
+}
+
+
+
+int main (){
+return 0;
 }
