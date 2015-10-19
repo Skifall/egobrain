@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+union floatBits1 {
+    float float_t;
+    char float_char[4];
+} floatBits;
+struct floatBit {
+    int s, e, m;
+};
+
+int main (){
+    struct floatBit Struct;
+    float a;
+    scanf("%g", &a);
+    floatBits.float_t = a;
+    Struct.s = floatBits.float_char[3]&0x80;
+    Struct.e = ((floatBits.float_char[3]&0x7f)<<1)+floatBits.float_char[2]&0x80;
+    Struct.m = ((((floatBits.float_char[2]&0x7f)<<8)+floatBits.float_char[1])<<8)+floatBits.float_char[0];
+    printf("\n%f", pow(-1,Struct.s));
+    printf("*1.%d",Struct.m);
+    printf("*2^%d", Struct.e-127);
+}
