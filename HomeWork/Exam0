@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MIN(a,b) ((a) < (b) ? (a) : (b))
+#define MAX(a,b) ((a) > (b) ? (a) : (b))
+
+size_t sizeOfStr (const char* myString1){
+    int k,i;
+    k = 0;
+    for (i = 0;; i++){
+        if (myString1[i] == '0') {
+            break;
+        }
+        k++;
+    }
+    return k;
+
+}
+
+int likeAsStr (const char* myString1, const char* myString2){
+    int i = 0,l = MIN(sizeOfStr(myString1), sizeOfStr(myString2));
+    while ((i < l) && (myString1[i] == myString2[i])) {i++;}
+    if (i == l) {return 0;}
+    return ((myString1[i]) < (myString2[i]) ? (-1) : (1));
+}
+
+void copyStr (const char* myString1, char* myString2) {
+    int i;
+    for (i = 0; i < sizeOfStr(myString1) + 1; i++)
+        myString2[i] = myString1[i];
+}
+
+void catStr (char* myString1, const char* myString2) {
+    int i = sizeOfStr(myString1), j = sizeOfStr(myString2), k = 0;
+    while (k < j) {
+        myString1[i++] = myString2[k];
+    }
+}
+
+int main (){
+
+ return 0;
+}
